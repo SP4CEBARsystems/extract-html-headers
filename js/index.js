@@ -4,8 +4,23 @@ const headerRegex = /<h([1-6]).*?id\=\"([^ ]*?)\".*?>(.*?)<\/h\1>/gis;
 const fileInput = document.getElementById('fileInput');
 const output = document.getElementById('output');
 const copyBtn = document.getElementById('copyBtn');
+const urlInput = document.getElementById('urlInput');
+let url = "";
+
+document.addEventListener('DOMContentLoaded', () => {
+    url = urlInput.value;
+});
+
+urlInput.addEventListener('change', () => {
+    url = urlInput.value;
+});
+
 
 fileInput.addEventListener('change', () => {
+    if (url === undefined) {
+        alert('Waiting for the page to load, please try again after a few seconds. If the issue persists, please report it using the link below the page.');
+        return;
+    }
     const file = fileInput.files[0];
     if (!file) return;
 
@@ -25,7 +40,7 @@ fileInput.addEventListener('change', () => {
                 //     .replace(/[^\p{L}\p{N}_-]+/gu, '-')
                 //     .replace(/^-+|-+$/g, '');
             const indent = '  '.repeat(Number(level) - 1);
-            return `${indent}- [${text}](https://lowresnx.inutilis.com/docs/manual.html#${id})`;
+            return `${indent}- [${text}](${url}#${id})`;
         });
 
         output.value = tocLines.join('\n') || 'No headers found.';

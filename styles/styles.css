@@ -11,17 +11,20 @@ h1 {
     margin-bottom: 1rem;
 }
 
-#output {
+#output, #urlInput {
     width: 100%;
     max-width: 600px;
-    height: 250px;
     margin-top: 1rem;
     padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 8px;
-    resize: vertical;
     background: white;
     font-family: monospace;
+}
+
+#output {
+    height: 250px;
+    resize: vertical;
 }
 
 #copyBtn {
@@ -40,4 +43,15 @@ h1 {
 
 #fileInput {
     margin-top: 1rem;
+}
+
+footer {
+    margin-top: 5em;
+}
+
+aside {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
 }
