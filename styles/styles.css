@@ -1,0 +1,43 @@
+body {
+    font-family: system-ui, sans-serif;
+    background: #f7f9fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+#output {
+    width: 100%;
+    max-width: 600px;
+    height: 250px;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    background: white;
+    font-family: monospace;
+}
+
+#copyBtn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#copyBtn:hover {
+    background-color: #0056b3;
+}
+
+#fileInput {
+    margin-top: 1rem;
+}
