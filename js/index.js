@@ -18,7 +18,11 @@ fileInput.addEventListener('change', () => {
         const tocLines = matches.map(([, level, content]) => {
             const text = content.replace(/<[^>]*>/g, '').trim();
             const idMatch = content.match(/id=["']([^"']+)["']/i);
-            const id = idMatch ? idMatch[1] : text.toLowerCase().replace(/[^\w]+/g, '-');
+            const id = idMatch
+                ? idMatch[1]
+                : text
+                    .replace(/[^\p{L}\p{N}_-]+/gu, '-')
+                    .replace(/^-+|-+$/g, '');
             const indent = '  '.repeat(Number(level) - 1);
             return `${indent}- [${text}](https://lowresnx.inutilis.com/docs/manual.html#${id})`;
         });
