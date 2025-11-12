@@ -1,5 +1,5 @@
 // Regex to match headers <h1> ... <h6>
-const headerRegex = /<h([1-6]).*?id\=\"(.*?)\">(.*?)<\/h\1>/gis;
+const headerRegex = /<h([1-6]).*?id\=\"([^ ]*?)\".*?>(.*?)<\/h\1>/gis;
 
 const fileInput = document.getElementById('fileInput');
 const output = document.getElementById('output');
