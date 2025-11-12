@@ -1,5 +1,5 @@
 // Regex to match headers <h1> ... <h6>
-const headerRegex = /<h([1-6]).*?>(.*?)<\/h\1>/gis;
+const headerRegex = /<h([1-6]).*?id\=\"(.*?)\">(.*?)<\/h\1>/gis;
 
 const fileInput = document.getElementById('fileInput');
 const output = document.getElementById('output');
@@ -15,11 +15,12 @@ fileInput.addEventListener('change', () => {
         const matches = [...html.matchAll(headerRegex)];
 
         // Build markdown Table of Contents
-        const tocLines = matches.map(([, level, content]) => {
+        const tocLines = matches.map(([, level, id, content]) => {
             const text = content.replace(/<[^>]*>/g, '').trim();
-            const idMatch = content.match(/id=["']([^"']+)["']/i);
-            const id = idMatch ? idMatch[1]: '';
-            console.log('content:', content, ', text:', text, ', idMatch:', idMatch, ',id:', id);
+            // const idMatch = content.match(/id=["']([^"']+)["']/i);
+            // const id = idMatch ? idMatch[1]: '';
+            // console.log('content:', content, ', text:', text, ', idMatch:', idMatch, ',id:', id);
+            console.log('level:', level, ', content:', content, ', text:', text, ', id:', id);
                 // text
                 //     .replace(/[^\p{L}\p{N}_-]+/gu, '-')
                 //     .replace(/^-+|-+$/g, '');
